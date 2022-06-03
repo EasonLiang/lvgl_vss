@@ -28,7 +28,7 @@ extern "C" {
 #elif defined(LV_DEMO_CONF_INCLUDE_SIMPLE)
 #include "lv_demo_conf.h"
 #else
-#include "../lv_demo_conf.h"
+#include "conf_build/lv_demo_conf.h"
 #endif
 
 #include "src/lv_demo_widgets/lv_demo_widgets.h"
