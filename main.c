@@ -17,7 +17,7 @@ static int tick_thread(void *data);
 
 int main()
 {
-  lv_init();       //   Initialize LVGL
+  lv_init();       //   Initialize LVGL     //内存，定时器核，文件系统，动画核心，组，对象风格，底层，刷新器，解码器，额外的初始化
   hal_init();    //  Initialize the HAL (display, input devices, tick) for LVGL
 
 //  lv_example_switch_1();
@@ -56,7 +56,7 @@ int main()
 static void hal_init(void)
 {
   monitor_init();   // Use the 'monitor' driver which creates window on PC's monitor to simulate a display
-  // Tick init.         You have to call 'lv_tick_inc()' in periodically to inform LittelvGL about how much time were elapsed Create an SDL thread to do this
+  // Tick init.         You have to call 'lv_tick_inc()' in periodically to inform LitteLVGL about how much time were elapsed. Create an SDL thread to do this
   SDL_CreateThread(tick_thread, "tick", NULL);
 
   /*Create a display buffer*/
