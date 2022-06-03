@@ -1,6 +1,6 @@
 #	lv_drivers/display/R61581.c		lv_drivers/display/ST7565.c				lv_drivers/display/SSD1963.c	lv_drivers/display/UC1610.c		lv_drivers/display/GC9A01.c	\
 	lv_drivers/display/ILI9341.c	lv_drivers/display/SHARP_MIP.c 		lv_drivers/display/drm.c 			lv_drivers/display/fbdev.c	:: ignorable
-SRC_LVDR_DISPLAY=	 lv_drivers/display/monitor.c
+SRC_LVDR_DISPLAY=lv_drivers/display/monitor.c	lv_drivers/mouse_cursor_icon.c
 #	lv_drivers/indev/XPT2046.c		lv_drivers/indev/FT5406EE8.c	lv_drivers/indev/AD_touch.c		lv_drivers/indev/libinput.c 		lv_drivers/indev/evdev.c	:: ignorable
 SRC_LVDR_INDEV=lv_drivers/indev/keyboard.c 			lv_drivers/indev/mouse.c 			lv_drivers/indev/mousewheel.c
 
