@@ -30,7 +30,7 @@ SRC_LVEX=lv_examples/src/lv_demo_benchmark/lv_demo_benchmark.c 		$(SRC_LVEX_WIDG
 	lv_examples/src/lv_demo_music/assets/img_lv_demo_music_wave_bottom.c 	lv_examples/src/lv_demo_music/assets/img_lv_demo_music_wave_bottom_large.c \
 	lv_examples/src/lv_demo_music/assets/img_lv_demo_music_wave_top.c 			 lv_examples/src/lv_demo_music/assets/img_lv_demo_music_wave_top_large.c
 
-SRC_MAIN=main/src/mouse_cursor_icon.c 		main/src/main.c
+SRC_MAIN=main.c
 
 #	Introduction :: # means ignorable, while ## means it was integrated into a respective library.
 
