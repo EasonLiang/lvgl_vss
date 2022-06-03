@@ -1,5 +1,5 @@
-include srcs.mk
-include libs.mk
+include conf_build/srcs.mk
+include conf_build/libs.mk
 
 PROJECT 			?= lvgl-sdl
 MAKEFLAGS 			:= -j $(shell nproc)
