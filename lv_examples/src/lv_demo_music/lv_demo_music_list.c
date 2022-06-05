@@ -1,33 +1,10 @@
-/**
- * @file lv_demo_music_list.c
- *
- */
-
-/*********************
- *      INCLUDES
- *********************/
 #include "lv_demo_music_list.h"
 #if LV_USE_DEMO_MUSIC
 
 #include "lv_demo_music_main.h"
-
-/*********************
- *      DEFINES
- *********************/
-
-/**********************
- *      TYPEDEFS
- **********************/
-
-/**********************
- *  STATIC PROTOTYPES
- **********************/
 static lv_obj_t * add_list_btn(lv_obj_t * parent, uint32_t track_id);
 static void btn_click_event_cb(lv_event_t * e);
 
-/**********************
- *  STATIC VARIABLES
- **********************/
 static lv_obj_t * list;
 static lv_font_t * font_small;
 static lv_font_t * font_medium;
@@ -41,14 +18,6 @@ static lv_style_t style_artist;
 static lv_style_t style_time;
 LV_IMG_DECLARE(img_lv_demo_music_btn_list_play);
 LV_IMG_DECLARE(img_lv_demo_music_btn_list_pause);
-
-/**********************
- *      MACROS
- **********************/
-
-/**********************
- *   GLOBAL FUNCTIONS
- **********************/
 
 lv_obj_t * _lv_demo_music_list_create(lv_obj_t * parent)
 {
@@ -141,10 +110,6 @@ void _lv_demo_music_list_btn_check(uint32_t track_id, bool state)
     }
 }
 
-/**********************
- *   STATIC FUNCTIONS
- **********************/
-
 static lv_obj_t * add_list_btn(lv_obj_t * parent, uint32_t track_id)
 {
     uint32_t t = _lv_demo_music_get_track_length(track_id);
@@ -200,7 +165,6 @@ static lv_obj_t * add_list_btn(lv_obj_t * parent, uint32_t track_id)
 
     return btn;
 }
-
 
 static void btn_click_event_cb(lv_event_t * e)
 {
