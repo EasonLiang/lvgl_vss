@@ -1,11 +1,3 @@
-/**
- * @file lv_demo_music_main.c
- *
- */
-
-/*********************
- *      INCLUDES
- *********************/
 #include "lv_demo_music_main.h"
 #if LV_USE_DEMO_MUSIC
 
@@ -14,9 +6,6 @@
 #include "assets/spectrum_2.h"
 #include "assets/spectrum_3.h"
 
-/*********************
- *      DEFINES
- *********************/
 #define ACTIVE_TRACK_CNT       3
 #define INTRO_TIME      2000
 #define BAR_COLOR1      lv_color_hex(0xe9dbfc)
@@ -30,14 +19,6 @@
 #define BAND_CNT         4
 #define BAR_PER_BAND_CNT  (BAR_CNT / BAND_CNT)
 
-
-/**********************
- *      TYPEDEFS
- **********************/
-
-/**********************
- *  STATIC PROTOTYPES
- **********************/
 static lv_obj_t * create_cont(lv_obj_t * parent);
 static void create_wave_images(lv_obj_t * parent);
 static lv_obj_t * create_title_box(lv_obj_t * parent);
@@ -61,9 +42,6 @@ static void spectrum_end_cb(lv_anim_t * a);
 static int32_t get_cos(int32_t deg, int32_t a);
 static int32_t get_sin(int32_t deg, int32_t a);
 
-/**********************
- *  STATIC VARIABLES
- **********************/
 static lv_obj_t * main_cont;
 static lv_obj_t * spectrum_obj;
 static lv_obj_t * title_label;
@@ -89,14 +67,6 @@ static lv_obj_t * play_obj;
 static const uint16_t (* spectrum)[4];
 static uint32_t spectrum_len;
 static const uint16_t rnd_array[30] = {994, 285, 553, 11, 792, 707, 966, 641, 852, 827, 44, 352, 146, 581, 490, 80, 729, 58, 695, 940, 724, 561, 124, 653, 27, 292, 557, 506, 382, 199};
-
-/**********************
- *      MACROS
- **********************/
-
-/**********************
- *   GLOBAL FUNCTIONS
- **********************/
 
 lv_obj_t * _lv_demo_music_main_create(lv_obj_t * parent)
 {
@@ -296,10 +266,6 @@ void _lv_demo_music_pause(void)
     lv_obj_clear_state(play_obj, LV_STATE_CHECKED);
 }
 
-/**********************
- *   STATIC FUNCTIONS
- **********************/
-
 static lv_obj_t * create_cont(lv_obj_t * parent)
 {
     /*A transparent container in which the player section will be scrolled*/
@@ -364,7 +330,6 @@ static void create_wave_images(lv_obj_t * parent)
 
 static lv_obj_t * create_title_box(lv_obj_t * parent)
 {
-
     /*Create the titles*/
     lv_obj_t * cont = lv_obj_create(parent);
     lv_obj_remove_style_all(cont);
@@ -874,4 +839,3 @@ static void stop_start_anim(lv_timer_t * t)
     lv_obj_refresh_ext_draw_size(spectrum_obj);
 }
 #endif /*LV_USE_DEMO_MUSIC*/
-
