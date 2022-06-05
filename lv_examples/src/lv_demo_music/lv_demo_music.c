@@ -1,11 +1,4 @@
-/**
- * @file lv_demo_music.c
- *
- */
 
-/*********************
- *      INCLUDES
- *********************/
 #include "lv_demo_music.h"
 
 #if LV_USE_DEMO_MUSIC
@@ -13,24 +6,12 @@
 #include "lv_demo_music_main.h"
 #include "lv_demo_music_list.h"
 
-/*********************
- *      DEFINES
- *********************/
 
-/**********************
- *      TYPEDEFS
- **********************/
 
-/**********************
- *  STATIC PROTOTYPES
- **********************/
 #if LV_DEMO_MUSIC_AUTO_PLAY
 static void auto_step_cb(lv_timer_t * timer);
 #endif
 
-/**********************
- *  STATIC VARIABLES
- **********************/
 static lv_obj_t * ctrl;
 static lv_obj_t * list;
 
@@ -103,13 +84,7 @@ static const uint32_t time_list[] = {
     2*60 + 19,
 };
 
-/**********************
- *      MACROS
- **********************/
 
-/**********************
- *   GLOBAL FUNCTIONS
- **********************/
 
 void lv_demo_music(void)
 {
@@ -147,9 +122,6 @@ uint32_t _lv_demo_music_get_track_length(uint32_t track_id)
     return time_list[track_id];
 }
 
-/**********************
- *   STATIC FUNCTIONS
- **********************/
 
 #if LV_DEMO_MUSIC_AUTO_PLAY
 static void auto_step_cb(lv_timer_t * t)

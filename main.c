@@ -38,9 +38,9 @@ int main()
 //  lv_example_flex_3();
 //  lv_demo_benchmark();
 
- lv_example_label_1();                              //  文本的彩色化，居中，横向滚动
+//  lv_example_label_1();                              //  文本的彩色化，居中，横向滚动
 //  lv_demo_keypad_encoder();                 //  基础组件的复合：日历，编辑框，消息框，按钮，复选框，列表框，下拉列表框，动态滑选框， 方向数字输入等
-//  lv_demo_music();                                    //  模拟音乐播放器
+ lv_demo_music();                                    //  模拟音乐播放器
 //  lv_demo_widgets();                                 //  原仓库默认的复合GUI应用程序
 //  lv_demo_stress();                                     //  图形压力测试GUI应用程序
 
