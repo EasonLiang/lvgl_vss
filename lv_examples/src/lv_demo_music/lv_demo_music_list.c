@@ -94,6 +94,20 @@ lv_obj_t * _lv_demo_music_list_create(lv_obj_t * parent)
     return list;
 }
 
+#if 1
+void _lv_demo_music_list_btn_check(uint32_t tid, bool state)
+{
+    lv_obj_t * btn = lv_obj_get_child(list, tid);
+    lv_obj_t * icon = lv_obj_get_child(btn,0);
+    if(state) {
+        lv_obj_add_state(btn,LV_STATE_CHECKED);
+        lv_img_set_src(icon,&img_lv_demo_music_btn_list_play);
+    } else {
+        lv_obj_clear_state(btn,LV_STATE_CHECKED);
+        lv_img_set_src(icon,&img_lv_demo_music_btn_list_pause);
+    }
+}
+#else
 void _lv_demo_music_list_btn_check(uint32_t track_id, bool state)
 {
     lv_obj_t * btn = lv_obj_get_child(list, track_id);
@@ -108,6 +122,7 @@ void _lv_demo_music_list_btn_check(uint32_t track_id, bool state)
         lv_img_set_src(icon, &img_lv_demo_music_btn_list_pause);
     }
 }
+#endif
 
 #if 1
 static lv_obj_t * add_list_btn(lv_obj_t * parent, uint32_t tid)
