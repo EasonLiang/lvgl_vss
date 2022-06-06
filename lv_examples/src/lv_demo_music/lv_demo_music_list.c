@@ -2,6 +2,17 @@
 #if LV_USE_DEMO_MUSIC
 
 #include "lv_demo_music_main.h"
+
+#if 1
+static lv_obj_t * add_list_btn(lv_obj_t * parent, uint32_t track_id);
+static void btn_click_event_cb(lv_event_t * e);
+
+static lv_obj_t * list;
+static lv_font_t * font_small, * font_medium;
+static lv_style_t style_scrollbar, style_btn, style_btn_pr, style_btn_chk, style_btn_dis, style_title, style_artist, style_time;
+LV_IMG_DECLARE(img_lv_demo_music_btn_list_play);
+LV_IMG_DECLARE(img_lv_demo_music_btn_list_pause);
+#else
 static lv_obj_t * add_list_btn(lv_obj_t * parent, uint32_t track_id);
 static void btn_click_event_cb(lv_event_t * e);
 
@@ -18,16 +29,12 @@ static lv_style_t style_artist;
 static lv_style_t style_time;
 LV_IMG_DECLARE(img_lv_demo_music_btn_list_play);
 LV_IMG_DECLARE(img_lv_demo_music_btn_list_pause);
+#endif
 
 lv_obj_t * _lv_demo_music_list_create(lv_obj_t * parent)
 {
-#if LV_DEMO_MUSIC_LARGE
-    font_small = &lv_font_montserrat_16;
-    font_medium = &lv_font_montserrat_22;
-#else
-    font_small = &lv_font_montserrat_12;
+    font_small = &lv_font_montserrat_12;    // for LARGE 16 && 22
     font_medium = &lv_font_montserrat_16;
-#endif
 
     lv_style_init(&style_scrollbar);
     lv_style_set_width(&style_scrollbar,  4);
@@ -37,22 +44,14 @@ lv_obj_t * _lv_demo_music_list_create(lv_obj_t * parent)
     lv_style_set_pad_right(&style_scrollbar, 4);
 
     static const lv_coord_t grid_cols[] = {LV_GRID_CONTENT, LV_GRID_FR(1), LV_GRID_CONTENT, LV_GRID_TEMPLATE_LAST};
-#if LV_DEMO_MUSIC_LARGE
-    static const lv_coord_t grid_rows[] = {35,  30, LV_GRID_TEMPLATE_LAST};
-#else
-    static const lv_coord_t grid_rows[] = {22,  17, LV_GRID_TEMPLATE_LAST};
-#endif
+    static const lv_coord_t grid_rows[] = {22,  17, LV_GRID_TEMPLATE_LAST};     // for LARGE 35 && 30
     lv_style_init(&style_btn);
     lv_style_set_bg_opa(&style_btn, LV_OPA_TRANSP);
     lv_style_set_grid_column_dsc_array(&style_btn, grid_cols);
     lv_style_set_grid_row_dsc_array(&style_btn, grid_rows);
     lv_style_set_grid_row_align(&style_btn, LV_GRID_ALIGN_CENTER);
     lv_style_set_layout(&style_btn, LV_LAYOUT_GRID);
-#if LV_DEMO_MUSIC_LARGE
-    lv_style_set_pad_right(&style_btn, 20);
-#else
-    lv_style_set_pad_right(&style_btn, 10);
-#endif
+    lv_style_set_pad_right(&style_btn, 10);                 // for LARGE 20
     lv_style_init(&style_btn_pr);
     lv_style_set_bg_opa(&style_btn_pr, LV_OPA_COVER);
     lv_style_set_bg_color(&style_btn_pr,  lv_color_hex(0x4c4965));
@@ -120,11 +119,7 @@ static lv_obj_t * add_list_btn(lv_obj_t * parent, uint32_t track_id)
 
     lv_obj_t * btn = lv_obj_create(parent);
     lv_obj_remove_style_all(btn);
-#if LV_DEMO_MUSIC_LARGE
-    lv_obj_set_size(btn, lv_pct(100), 110);
-#else
-    lv_obj_set_size(btn, lv_pct(100), 60);
-#endif
+    lv_obj_set_size(btn, lv_pct(100), 60);          // for LARGE 110
 
     lv_obj_add_style(btn, &style_btn, 0);
     lv_obj_add_style(btn, &style_btn_pr, LV_STATE_PRESSED);
