@@ -80,6 +80,13 @@ static const uint32_t time_list[] = {
 
 void lv_demo_music(void)
 {
+    lv_obj_set_style_bg_color(lv_scr_act(),lv_color_hex(0x146262),0) ;
+    _lv_demo_music_list_create(lv_scr_act());
+    _lv_demo_music_main_create(lv_scr_act());
+}
+
+void lv_demo_music0(void)
+{
     lv_obj_set_style_bg_color(lv_scr_act(), lv_color_hex(0x343247), 0);
 
     list = _lv_demo_music_list_create(lv_scr_act());
