@@ -109,6 +109,52 @@ void _lv_demo_music_list_btn_check(uint32_t track_id, bool state)
     }
 }
 
+#if 1
+static lv_obj_t * add_list_btn(lv_obj_t * parent, uint32_t tid)
+{
+    uint32_t t = _lv_demo_music_get_track_length(tid);
+    char time[32];
+    lv_snprintf(time,sizeof(time),"%d:%02d",t/60,t%60);
+    const char * title = _lv_demo_music_get_title(tid);
+    const char * artist = _lv_demo_music_get_artist(tid);
+
+    lv_obj_t * btn = lv_obj_create(parent);
+        lv_obj_remove_style_all(btn);
+        lv_obj_set_size(btn,lv_pct(100),60);
+        lv_obj_add_style(btn,&style_btn,0);
+        lv_obj_add_style(btn,&style_btn_pr,LV_STATE_PRESSED);
+        lv_obj_add_style(btn,&style_btn_chk,LV_STATE_PRESSED);
+        lv_obj_add_style(btn,&style_btn_dis,LV_STATE_DISABLED);
+
+        lv_obj_add_event_cb(btn,btn_click_event_cb,LV_EVENT_CLICKED,NULL);
+        if(tid>=3)  {
+            lv_obj_add_state(btn,LV_STATE_DISABLED);
+        }
+
+        lv_obj_t * icon = lv_img_create(btn);
+            lv_img_set_src(icon,&img_lv_demo_music_btn_list_pause);
+            lv_obj_set_grid_cell(icon, LV_GRID_ALIGN_START, 0, 1, LV_GRID_ALIGN_CENTER, 0,20);
+        lv_obj_t * title_label = lv_label_create(btn);
+            lv_label_set_text(title_label, title);
+            lv_obj_set_grid_cell(title_label,LV_GRID_ALIGN_START,1,1,LV_GRID_ALIGN_CENTER,0,1);
+            lv_obj_add_style(title_label,&style_title,0);
+        lv_obj_t * artist_label = lv_label_create(btn);
+            lv_label_set_text(artist_label,artist);
+            lv_obj_set_grid_cell(artist_label,LV_GRID_ALIGN_START,1,1,LV_GRID_ALIGN_CENTER,1,1);
+            lv_obj_add_style(artist_label,&style_artist,0);
+        lv_obj_t * time_label = lv_label_create(btn);
+            lv_label_set_text(time_label,time);
+            lv_obj_set_grid_cell(time_label,LV_GRID_ALIGN_END,2,1,LV_GRID_ALIGN_CENTER,0,2);
+            lv_obj_add_style(time_label,&style_time,0);
+        LV_IMG_DECLARE(img_lv_demo_music_list_border);
+        lv_obj_t * border = lv_img_create(btn);
+            lv_img_set_src(border,&img_lv_demo_music_list_border);
+            lv_obj_set_width(border,lv_pct(120));
+            lv_obj_align(border, LV_ALIGN_BOTTOM_MID, 0, 0);
+            lv_obj_add_flag(border,LV_OBJ_FLAG_IGNORE_LAYOUT);
+    return btn;
+}
+#else
 static lv_obj_t * add_list_btn(lv_obj_t * parent, uint32_t track_id)
 {
     uint32_t t = _lv_demo_music_get_track_length(track_id);
@@ -160,6 +206,7 @@ static lv_obj_t * add_list_btn(lv_obj_t * parent, uint32_t track_id)
 
     return btn;
 }
+#endif
 
 #if 1
 static void btn_click_event_cb(lv_event_t * e)
