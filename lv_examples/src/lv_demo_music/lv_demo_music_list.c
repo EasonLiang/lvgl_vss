@@ -161,6 +161,12 @@ static lv_obj_t * add_list_btn(lv_obj_t * parent, uint32_t track_id)
     return btn;
 }
 
+#if 1
+static void btn_click_event_cb(lv_event_t * e)
+{
+    _lv_demo_music_play(lv_obj_get_child_id(e->target));
+}
+#else
 static void btn_click_event_cb(lv_event_t * e)
 {
     lv_obj_t * btn = lv_event_get_target(e);
@@ -169,5 +175,6 @@ static void btn_click_event_cb(lv_event_t * e)
 
     _lv_demo_music_play(idx);
 }
+#endif
 #endif /*LV_USE_DEMO_MUSIC*/
 
