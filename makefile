@@ -34,8 +34,9 @@ DEFINES=-DSIMULATOR=1 -DLV_BUILD_TEST=0
 # Include simulator inc folder first so lv_conf.h from custom UI can be used instead
 INC=-I. -Ilvgl
 CFLAGS=$(DEFINES) $(INC) -O0 -g $(WARNINGS)
-LDLIBS	 			:= -lSDL2 -lm -L$(LIB_DIR) -lfont -lwidgets -lmisc -lextra -lcore -lgpu	-llvgl-example-asset	-llvgl-example-layout	\
-																					-llvgl-example-widgets -llvgl-example-scroll -llv-drivers-io -lhal-event
+LDLIBS	 			:= -lm -Lsdl/install/lib -lSDL2 -L$(LIB_DIR) -lfont -lwidgets -lmisc -lextra -lcore -lgpu \
+							-llvgl-example-asset	-llvgl-example-layout -llvgl-example-widgets -llvgl-example-scroll \
+							-llv-drivers-io -lhal-event
 CC	= gcc $(CFLAGS)
 
 OBJ_FONT=$(patsubst %.c,%.o,$(SRC_LVGL_FONT))
